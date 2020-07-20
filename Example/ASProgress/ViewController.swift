@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 
     @IBAction func showSpinner(_ sender: Any) {
         ASProgress.show()
-        self.perform(#selector(dismissSpinner(_:)), with: nil, afterDelay: 5.0)
+        self.perform(#selector(dismissSpinner(_:)), with: nil, afterDelay: 10.0)
     }
     
     @objc func dismissSpinner(_ sender: Any) {
