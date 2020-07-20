@@ -1,0 +1,6 @@
+framework module ASProgress {
+  umbrella header "ASProgress-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,27 @@
+PODS:
+  - ASProgress (0.1.0)
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+
+DEPENDENCIES:
+  - ASProgress (from `../`)
+  - FBSnapshotTestCase (~> 2.1.4)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  ASProgress:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ASProgress: 3add99361cac9527b7b2289489efbe8d9bb1c973
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+
+PODFILE CHECKSUM: f4a26805e7a12bf7fe2b55cb77bfa570850d462f
+
+COCOAPODS: 1.9.1
