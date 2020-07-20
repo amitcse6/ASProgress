@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/cocoapods/l/ASProgress.svg?style=flat)](https://cocoapods.org/pods/ASProgress)
 [![Platform](https://img.shields.io/cocoapods/p/ASProgress.svg?style=flat)](https://cocoapods.org/pods/ASProgress)
 
+Screenshots
+---------
+![ASProgress Screenshots](asprogress_screenshot.gif)
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
