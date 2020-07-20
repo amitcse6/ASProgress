@@ -10,6 +10,13 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+```
+// Show
+ASProgress.show()
+
+// Dismiss
+ASProgress.dismiss()
+```
 
 ## Installation
 
