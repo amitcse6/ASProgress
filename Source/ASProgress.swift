@@ -29,25 +29,37 @@ public class ASProgress {
     private init() {
     }
     
-    func show() {
+    func show(_ view: UIView? = nil) {
         if let viewController = ASProgress.topMostVC {
             progressView = ASProgressView()
-            viewController.view.addSubview(progressView.unsafelyUnwrapped)
             progressView?.backgroundColor = .clear
-            if #available(iOS 11.0, *) {
-                progressView?.translatesAutoresizingMaskIntoConstraints = false
-                progressView?.topAnchor.constraint(equalTo: viewController.view.topAnchor).isActive = true
-                progressView?.leftAnchor.constraint(equalTo: viewController.view.leftAnchor).isActive = true
-                progressView?.rightAnchor.constraint(equalTo: viewController.view.rightAnchor).isActive = true
-                progressView?.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor).isActive = true
-                
-                let gesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
-                gesture.numberOfTapsRequired = 1
-                progressView?.addGestureRecognizer(gesture)
-                progressView?.isUserInteractionEnabled = true
-            } else {
-                // Fallback on earlier versions
+            if let view = view {
+                if #available(iOS 11.0, *) {
+                    view.addSubview(progressView.unsafelyUnwrapped)
+                    progressView?.translatesAutoresizingMaskIntoConstraints = false
+                    progressView?.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+                    progressView?.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+                    progressView?.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+                    progressView?.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+                } else {
+                    // Fallback on earlier versions
+                }
+            }else {
+                if #available(iOS 11.0, *) {
+                    viewController.view.addSubview(progressView.unsafelyUnwrapped)
+                    progressView?.translatesAutoresizingMaskIntoConstraints = false
+                    progressView?.topAnchor.constraint(equalTo: viewController.view.topAnchor).isActive = true
+                    progressView?.leftAnchor.constraint(equalTo: viewController.view.leftAnchor).isActive = true
+                    progressView?.rightAnchor.constraint(equalTo: viewController.view.rightAnchor).isActive = true
+                    progressView?.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor).isActive = true
+                } else {
+                    // Fallback on earlier versions
+                }
             }
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
+            gesture.numberOfTapsRequired = 1
+            progressView?.addGestureRecognizer(gesture)
+            progressView?.isUserInteractionEnabled = true
         }
     }
     
@@ -72,14 +84,14 @@ public class ASProgress {
 
 @available(iOS 9.0, *)
 extension ASProgress {
-    public static func show() {
+    @objc public static func show(_ view: UIView? = nil) {
         if let progress = ASProgress.shared() {
             ASProgress.dismiss()
-            progress.show()
+            progress.show(view)
         }
     }
     
-    public static func dismiss() {
+    @objc public static func dismiss() {
         if let progress = ASProgress.shared() {
             progress.dismiss(progress.progressView)
         }
